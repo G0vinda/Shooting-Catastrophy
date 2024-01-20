@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7322947926992313531}
   - component: {fileID: 7392913461403502468}
   - component: {fileID: 7013698644678464222}
+  - component: {fileID: -4415607354650911803}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -167,10 +168,15 @@ MonoBehaviour:
   cat2: {fileID: 21300000, guid: 77cc432000c065b4f8e3f0061380be10, type: 3}
   catWhale1: {fileID: 21300000, guid: 7417b302ce814914998bfb2e8b9e0c68, type: 3}
   catWhale2: {fileID: 21300000, guid: df3a86fdac48dfc49a4f1f8a61d10c92, type: 3}
+  catFood1: {fileID: 21300000, guid: 50caf914cc0d8fc408d068cc80175ad8, type: 3}
+  catFood2: {fileID: 21300000, guid: 1197d05b4c6cf1e479e5312474810cf2, type: 3}
   shootSound1: {fileID: 8300000, guid: a9c68d6a61876e443b30faf59aa64527, type: 3}
   shootSound2: {fileID: 8300000, guid: cd384715a2e620c4997d7bdf4e230a6b, type: 3}
   toWhaleSound1: {fileID: 8300000, guid: 7ab8d91450f63924db142356e4d0a860, type: 3}
   toWhaleSound2: {fileID: 8300000, guid: 4f82fd958f25ce94eb5b8053d987ddc0, type: 3}
+  toFoodSound1: {fileID: 8300000, guid: bebfbedea818f7544933658808b45001, type: 3}
+  toFoodSound2: {fileID: 8300000, guid: bebfbedea818f7544933658808b45001, type: 3}
+  eatSound: {fileID: 8300000, guid: 3f3b2a234cf195d4aa9fff9a3e714328, type: 3}
   spawnPoint1: {x: -10, y: 4, z: 0}
   spawnPoint2: {x: 10, y: -4, z: 0}
   shooterHandle: {fileID: 9109639103780429343}
@@ -307,7 +313,34 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.0041022897}
   serializedVersion: 2
-  m_Radius: 2.0177338
+  m_Radius: 2.5
+--- !u!50 &-4415607354650911803
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2345009638510610247}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6175755369423017622
 GameObject:
   m_ObjectHideFlags: 0
