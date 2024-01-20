@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
@@ -45,8 +46,8 @@ public class Obstacle : MonoBehaviour, ITarget
     {
         Randomize();
     }
-    
-    private void OnCollisionEnter2D(Collision2D other)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Projectile projectile = other.gameObject.GetComponent<Projectile>();
         if (projectile != null && projectile.IsArmed)
