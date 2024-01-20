@@ -129,6 +129,7 @@ MonoBehaviour:
   transformations:
   - {fileID: 5750602910131369355, guid: cd73902f8eacb4b4d9d7992c98cbf589, type: 3}
   - {fileID: 5750602910131369355, guid: 8004aa8cde071794b813ef0a5bb3a46b, type: 3}
+  - {fileID: 5750602910131369355, guid: 4acdffdc9deb2914db84c2e4ae81ab68, type: 3}
 --- !u!60 &2368917338307314932
 PolygonCollider2D:
   m_ObjectHideFlags: 0
