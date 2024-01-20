@@ -128,6 +128,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 18750bd8-18de-4127-b095-3d05876e649f
     m_ActionName: Movement/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7322947926992313531}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 78c320ce-ab50-4e27-8a3d-0e1e9508b793
+    m_ActionName: Movement/Shooting[/XInputControllerWindows1/buttonSouth,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
@@ -149,6 +165,8 @@ MonoBehaviour:
   color2: {r: 0.7529412, g: 0.33486944, b: 0, a: 1}
   spawnPoint1: {x: -5, y: 0, z: 0}
   spawnPoint2: {x: 5, y: 0, z: 0}
+  shooterHandle: {fileID: 9109639103780429343}
+  projectilePrefab: {fileID: 535887839912658927, guid: 802b5700eae6d34448fce92b73f7d254, type: 3}
 --- !u!1 &6175755369423017622
 GameObject:
   m_ObjectHideFlags: 0

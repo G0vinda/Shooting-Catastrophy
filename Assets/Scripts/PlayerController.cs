@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Color color2;
     [SerializeField] private Vector3 spawnPoint1;
     [SerializeField] private Vector3 spawnPoint2;
+    [SerializeField] private Transform shooterHandle;
+    [SerializeField] private Projectile projectilePrefab;
 
     private static int _playerCount = 0;
     
@@ -41,6 +43,26 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext ctx)
     {
         _currentMoveSpeed = ctx.ReadValue<Vector2>();
-        Debug.Log(_currentMoveSpeed);
+        TurnShooterToCurrentDirection();
+    }
+
+    public void OnShoot(InputAction.CallbackContext ctx)
+    {
+        ShootProjectile();
+    }
+
+    private void TurnShooterToCurrentDirection()
+    {
+        var newAngle = Vector2.Angle(Vector2.up, _currentMoveSpeed);
+        if (_currentMoveSpeed.x > 0)
+            newAngle *= -1;
+        shooterHandle.rotation = Quaternion.Euler(0, 0, newAngle);
+        Debug.Log(newAngle);
+    }
+
+    private void ShootProjectile()
+    {
+        var projectile = Instantiate(projectilePrefab, shooterHandle.position, Quaternion.identity);
+        projectile.Velocity = shooterHandle.rotation.eulerAngles.normalized;
     }
 }
