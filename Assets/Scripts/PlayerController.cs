@@ -13,16 +13,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Sprite catWhale2;
     [SerializeField] private AudioClip shootSound1;
     [SerializeField] private AudioClip shootSound2;
+    [SerializeField] private AudioClip toWhaleSound1;
+    [SerializeField] private AudioClip toWhaleSound2;
     [SerializeField] private Vector3 spawnPoint1;
     [SerializeField] private Vector3 spawnPoint2;
     [SerializeField] private Transform shooterHandle;
     [SerializeField] private Transform shooterTransform;
     [SerializeField] private Projectile projectilePrefab;
+    [SerializeField] private float startSpeed;
 
     private static int _playerCount = 0;
     private int _appearance;
+    private float _currentSpeed;
     
-    private Vector2 _currentMoveSpeed;
+    private Vector2 _currentMoveDirection;
     private SpriteRenderer _spriteRenderer;
     private AudioSource _audioSource;
 
@@ -30,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _audioSource = GetComponent<AudioSource>();
+        _currentSpeed = startSpeed;
         if (_playerCount == 0)
         {
             _playerCount = 1;
@@ -49,12 +54,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        transform.position += (Vector3)_currentMoveSpeed * Time.deltaTime;
+        transform.position += (Vector3)_currentMoveDirection * (Time.deltaTime * _currentSpeed);
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
     {
-        _currentMoveSpeed = ctx.ReadValue<Vector2>();
+        _currentMoveDirection = ctx.ReadValue<Vector2>();
         TurnShooterToCurrentDirection();
     }
 
@@ -68,8 +73,8 @@ public class PlayerController : MonoBehaviour
 
     private void TurnShooterToCurrentDirection()
     {
-        var newAngle = Vector2.Angle(Vector2.up, _currentMoveSpeed);
-        if (_currentMoveSpeed.x > 0)
+        var newAngle = Vector2.Angle(Vector2.up, _currentMoveDirection);
+        if (_currentMoveDirection.x > 0)
             newAngle *= -1;
         shooterHandle.rotation = Quaternion.Euler(0, 0, newAngle);
         Debug.Log(newAngle);
@@ -80,16 +85,29 @@ public class PlayerController : MonoBehaviour
         var projectile = Instantiate(projectilePrefab, shooterTransform.position, shooterHandle.rotation);
         _audioSource.Play();
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Projectile projectile = other.gameObject.GetComponent<Projectile>();
+        if (projectile != null && projectile.IsArmed)
+        {
+            TransformToWhale();
+        }
+    }
 
     private void TransformToWhale()
     {
+        _currentSpeed *= 0.3f;
         if (_appearance == 1)
         {
             _spriteRenderer.sprite = catWhale1;
+            _audioSource.clip = toWhaleSound1;
         }
         else
         {
             _spriteRenderer.sprite = catWhale2;
+            _audioSource.clip = toWhaleSound2;
         }
+        _audioSource.Play();
     }
 }

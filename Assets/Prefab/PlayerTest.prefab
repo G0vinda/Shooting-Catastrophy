@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9073745691583823101}
   - component: {fileID: 7322947926992313531}
   - component: {fileID: 7392913461403502468}
+  - component: {fileID: 7013698644678464222}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -168,11 +169,14 @@ MonoBehaviour:
   catWhale2: {fileID: 21300000, guid: df3a86fdac48dfc49a4f1f8a61d10c92, type: 3}
   shootSound1: {fileID: 8300000, guid: a9c68d6a61876e443b30faf59aa64527, type: 3}
   shootSound2: {fileID: 8300000, guid: cd384715a2e620c4997d7bdf4e230a6b, type: 3}
-  spawnPoint1: {x: -5, y: 0, z: 0}
-  spawnPoint2: {x: 5, y: 0, z: 0}
+  toWhaleSound1: {fileID: 8300000, guid: 7ab8d91450f63924db142356e4d0a860, type: 3}
+  toWhaleSound2: {fileID: 8300000, guid: 4f82fd958f25ce94eb5b8053d987ddc0, type: 3}
+  spawnPoint1: {x: -10, y: 4, z: 0}
+  spawnPoint2: {x: 10, y: -4, z: 0}
   shooterHandle: {fileID: 9109639103780429343}
   shooterTransform: {fileID: 258063783144501908}
   projectilePrefab: {fileID: 535887839912658927, guid: 802b5700eae6d34448fce92b73f7d254, type: 3}
+  startSpeed: 3
 --- !u!82 &7392913461403502468
 AudioSource:
   m_ObjectHideFlags: 0
@@ -269,6 +273,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &7013698644678464222
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2345009638510610247}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0041022897}
+  serializedVersion: 2
+  m_Radius: 2.0177338
 --- !u!1 &6175755369423017622
 GameObject:
   m_ObjectHideFlags: 0
