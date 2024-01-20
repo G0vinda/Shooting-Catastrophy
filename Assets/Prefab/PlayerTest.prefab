@@ -168,8 +168,8 @@ MonoBehaviour:
   catWhale2: {fileID: 21300000, guid: df3a86fdac48dfc49a4f1f8a61d10c92, type: 3}
   shootSound1: {fileID: 8300000, guid: a9c68d6a61876e443b30faf59aa64527, type: 3}
   shootSound2: {fileID: 8300000, guid: cd384715a2e620c4997d7bdf4e230a6b, type: 3}
-  spawnPoint1: {x: -5, y: 0, z: 0}
-  spawnPoint2: {x: 5, y: 0, z: 0}
+  spawnPoint1: {x: -10, y: 4, z: 0}
+  spawnPoint2: {x: 10, y: -4, z: 0}
   shooterHandle: {fileID: 9109639103780429343}
   shooterTransform: {fileID: 258063783144501908}
   projectilePrefab: {fileID: 535887839912658927, guid: 802b5700eae6d34448fce92b73f7d254, type: 3}
