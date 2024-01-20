@@ -166,6 +166,7 @@ MonoBehaviour:
   spawnPoint1: {x: -5, y: 0, z: 0}
   spawnPoint2: {x: 5, y: 0, z: 0}
   shooterHandle: {fileID: 9109639103780429343}
+  shooterTransform: {fileID: 258063783144501908}
   projectilePrefab: {fileID: 535887839912658927, guid: 802b5700eae6d34448fce92b73f7d254, type: 3}
 --- !u!1 &6175755369423017622
 GameObject:
@@ -178,7 +179,7 @@ GameObject:
   - component: {fileID: 258063783144501908}
   - component: {fileID: 5474811245319147293}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,11 +276,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6977278894926963542}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.01963938, w: 0.9998071}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 258063783144501908}
   m_Father: {fileID: 2573584006751835540}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.251}

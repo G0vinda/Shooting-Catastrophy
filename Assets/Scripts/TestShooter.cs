@@ -19,8 +19,6 @@ public class TestShooter : MonoBehaviour
                 normalized3.x,
                 normalized3.y
             );
-
-            projectileInstance.GetComponent<Projectile>().Velocity = normalized2 * 5;   
         }
     }
 }

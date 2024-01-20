@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3 spawnPoint1;
     [SerializeField] private Vector3 spawnPoint2;
     [SerializeField] private Transform shooterHandle;
+    [SerializeField] private Transform shooterTransform;
     [SerializeField] private Projectile projectilePrefab;
 
     private static int _playerCount = 0;
@@ -48,6 +49,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext ctx)
     {
+        if(!ctx.ReadValueAsButton())
+            return;
+        
         ShootProjectile();
     }
 
@@ -62,7 +66,6 @@ public class PlayerController : MonoBehaviour
 
     private void ShootProjectile()
     {
-        var projectile = Instantiate(projectilePrefab, shooterHandle.position, Quaternion.identity);
-        projectile.Velocity = shooterHandle.rotation.eulerAngles.normalized;
+        var projectile = Instantiate(projectilePrefab, shooterTransform.position, shooterHandle.rotation);
     }
 }

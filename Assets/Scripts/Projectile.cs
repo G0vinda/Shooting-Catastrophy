@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Vector2 Velocity { get; set; }
+    [SerializeField] private float speed;
     public bool IsArmed { get; set; } = true;
 
 
@@ -12,13 +12,9 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         Transform t = transform;
-        Vector3 position = t.localPosition;
-        Vector3 newPosition = new Vector3(
-            position.x + (Velocity.x * Time.deltaTime),
-            position.y + (Velocity.y * Time.deltaTime),
-            position.z
-        );
-        t.localPosition = newPosition;
+        Vector3 position = t.position;
+        var newPosition = position + t.up * (Time.deltaTime * speed);
+        t.position = newPosition;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
