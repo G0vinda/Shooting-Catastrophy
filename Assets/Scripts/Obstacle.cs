@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
-public class Obstacle : MonoBehaviour
+public class Obstacle : MonoBehaviour, ITarget
 {
-    [SerializeField] private GameObject[] Transformations;
+    [SerializeField] protected GameObject[] transformations;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,32 +21,39 @@ public class Obstacle : MonoBehaviour
         
     }
     
-    public static T GetRandom<T>(T[] array)
+    protected static T GetRandom<T>(T[] array)
     {
-        return array[UnityEngine.Random.Range(0, array.Length)];
+        int index = UnityEngine.Random.Range(0, array.Length);
+        return array[index];
     }
 
     private void Randomize()
     {
-        GameObject prefab = GetRandom(Transformations);
-        GameObject instance = Instantiate(prefab, transform);
-        instance.transform.SetParent(transform.root);
+        GameObject prefab = GetRandom(transformations);
+        GameObject instance = Instantiate(prefab);
+        instance.transform.position = transform.position;
 
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
         Rigidbody2D instanceRigidbody = instance.GetComponent<Rigidbody2D>();
 
         instanceRigidbody.velocity = rigidbody.velocity;
         instanceRigidbody.angularVelocity = rigidbody.angularVelocity;
-
         
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public virtual void OnHit()
     {
-        if (other.gameObject.GetComponent<Projectile>() != null)
+        Randomize();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Projectile projectile = other.gameObject.GetComponent<Projectile>();
+        if (projectile != null && projectile.IsArmed)
         {
-            
+            projectile.IsArmed = false;
+            OnHit();
         }
     }
 }

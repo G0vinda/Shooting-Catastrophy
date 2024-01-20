@@ -5,13 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Vector2 Velocity { get; set; }
-    
+    public bool IsArmed { get; set; } = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -24,5 +19,12 @@ public class Projectile : MonoBehaviour
             position.z
         );
         t.localPosition = newPosition;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Projectile projectile = other.gameObject.GetComponent<Projectile>();
+        if (projectile != null) return;
+        Destroy(gameObject);
     }
 }
