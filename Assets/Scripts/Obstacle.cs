@@ -25,7 +25,7 @@ public class Obstacle : MonoBehaviour
 
     private void Randomize()
     {
-        GameObject prefab = ();
+        GameObject prefab = GetRandom(Transformations);
         GameObject instance = Instantiate(prefab, transform);
         instance.transform.SetParent(transform.root);
 
