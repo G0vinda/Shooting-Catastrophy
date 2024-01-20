@@ -1,0 +1,9 @@
+diff a/Assets/Prefab/PlayerTest.prefab b/Assets/Prefab/PlayerTest.prefab	(rejected hunks)
+@@ -171,6 +171,7 @@
+   shootSound2: {fileID: 8300000, guid: cd384715a2e620c4997d7bdf4e230a6b, type: 3}
+   toWhaleSound1: {fileID: 8300000, guid: 7ab8d91450f63924db142356e4d0a860, type: 3}
+   toWhaleSound2: {fileID: 8300000, guid: 4f82fd958f25ce94eb5b8053d987ddc0, type: 3}
++  spawnPoint1: {x: -10, y: 4, z: 0}
+   spawnPoint2: {x: 10, y: -4, z: 0}
+   shooterHandle: {fileID: 9109639103780429343}
+   shooterTransform: {fileID: 258063783144501908}
