@@ -40,7 +40,7 @@
                     "name": "",
                     "id": "4cdd6a79-0c1f-4aa1-af3c-70a890861948",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "Shooting",

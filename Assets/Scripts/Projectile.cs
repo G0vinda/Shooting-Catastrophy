@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,14 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float timeToLive;
     public bool IsArmed { get; set; } = true;
 
+    private void Start()
+    {
+        Invoke("DestroySelf", timeToLive);
+    }
 
-    // Update is called once per frame
     void Update()
     {
         Transform t = transform;
@@ -21,6 +26,11 @@ public class Projectile : MonoBehaviour
     {
         Projectile projectile = other.gameObject.GetComponent<Projectile>();
         if (projectile != null) return;
+        Destroy(gameObject);
+    }
+
+    private void DestroySelf()
+    {
         Destroy(gameObject);
     }
 }

@@ -7,8 +7,12 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Color color1;
-    [SerializeField] private Color color2;
+    [SerializeField] private Sprite cat1;
+    [SerializeField] private Sprite cat2;
+    [SerializeField] private Sprite catWhale1;
+    [SerializeField] private Sprite catWhale2;
+    [SerializeField] private AudioClip shootSound1;
+    [SerializeField] private AudioClip shootSound2;
     [SerializeField] private Vector3 spawnPoint1;
     [SerializeField] private Vector3 spawnPoint2;
     [SerializeField] private Transform shooterHandle;
@@ -16,23 +20,30 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Projectile projectilePrefab;
 
     private static int _playerCount = 0;
+    private int _appearance;
     
     private Vector2 _currentMoveSpeed;
     private SpriteRenderer _spriteRenderer;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
         if (_playerCount == 0)
         {
             _playerCount = 1;
-            _spriteRenderer.color = color1;
+            _spriteRenderer.sprite = cat1;
             transform.position = spawnPoint1;
+            _appearance = 1;
+            _audioSource.clip = shootSound1;
         }
         else
         {
-            _spriteRenderer.color = color2;
+            _spriteRenderer.sprite = cat2;
             transform.position = spawnPoint2;
+            _appearance = 2;
+            _audioSource.clip = shootSound2;
         }
     }
 
@@ -67,5 +78,18 @@ public class PlayerController : MonoBehaviour
     private void ShootProjectile()
     {
         var projectile = Instantiate(projectilePrefab, shooterTransform.position, shooterHandle.rotation);
+        _audioSource.Play();
+    }
+
+    private void TransformToWhale()
+    {
+        if (_appearance == 1)
+        {
+            _spriteRenderer.sprite = catWhale1;
+        }
+        else
+        {
+            _spriteRenderer.sprite = catWhale2;
+        }
     }
 }

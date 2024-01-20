@@ -9,18 +9,6 @@ public class Obstacle : MonoBehaviour, ITarget
 {
     [SerializeField] protected GameObject[] transformations;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     protected static T GetRandom<T>(T[] array)
     {
         int index = UnityEngine.Random.Range(0, array.Length);
