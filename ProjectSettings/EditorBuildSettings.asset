@@ -6,6 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+    path: Assets/Scenes/AlexScene.unity
+    guid: 90285daef28f8f04bac9ebca35a99740
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: af075c662e9de8c4db42ac05b4c71efe, type: 2}

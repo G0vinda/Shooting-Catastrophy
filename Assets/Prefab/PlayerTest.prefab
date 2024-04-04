@@ -147,7 +147,7 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 78c320ce-ab50-4e27-8a3d-0e1e9508b793
     m_ActionName: Movement/Shooting[/XInputControllerWindows1/buttonSouth,/XInputControllerWindows/buttonSouth]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
   m_SplitScreenIndex: 0
